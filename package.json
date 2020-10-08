@@ -1,0 +1,54 @@
+{
+  "name": "cucumberjs-parallel",
+  "version": "1.0.0",
+  "description": "Run cucumber features or scenarios in parallel with limited threads count",
+  "main": "./lib/run.js",
+  "scripts": {
+    "test": "mocha './test/unit_tests'",
+    "pretest": "npm run cucumberjs-run-features && npm run test-feature && npm run test-scenario",
+    "test-feature": "node test/bin/cucumberjs-parallel test/features --parallel-type features -w 1 --format json:test/report/cucumber_report1.json",
+    "test-scenario": "node test/bin/cucumberjs-parallel test/features --parallel-type scenarios -w 2 --format json:test/report/cucumber_report2.json",
+    "cucumberjs-run-features": "./node_modules/.bin/cucumber-js, test/features --format json:test/report/cucumber_report0.json",
+    "test-feature-no-params": "node test/bin/cucumberjs-parallel test/features -w 4",
+    "test-allure": "node test/bin/cucumberjs-parallel test/features --parallel-type features -w 2 -f test/allure/Reporter.js",
+    "cucumberjs-run-feature": "./node_modules/.bin/cucumber-js test/features/parallel_1.feature:31 --format json:test/report/cucumber_report.json"
+  },
+  "keywords": [
+    "cucumber",
+    "parallel",
+    "concurrent",
+    "cucumber-js",
+    "cucumber-parallel",
+    "cucumberjs-parallel"
+  ],
+  "author": {
+    "name": "Viacheslav Timonov",
+    "email": "tsmaggot@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "allure-cucumberjs": "^2.0.0-beta.8",
+    "chai": "^4.2.0",
+    "deep-equal-in-any-order": "^1.0.28",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^8.1.3",
+    "prettier": "2.1.2",
+    "simple-node-logger": "^18.12.24"
+  },
+  "dependencies": {
+    "@mcjxy/task-pool": "^1.1.8",
+    "cucumber": "^6.0.5",
+    "fs-finder": "^1.8.1",
+    "lodash": "^4.17.20",
+    "fs-extra": "^9.0.1",
+    "gherkin": "5.0.0",
+    "uuid": "^8.3.1",
+    "commander": "^6.1.0"
+  }
+}
