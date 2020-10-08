@@ -1,0 +1,118 @@
+Cucumberjs Parallel
+=================
+***Run Cucumber Features or Scenarios in Parallel with limited threads count***
+
+[![Build Status][travis-shield]][travis-link] [![npm][npm-shield]][npm-link] [![Dependency Status][depedency-shield]][depedency-link] [![License][license-shield]][license-link]
+
+## Install
+
+``` bash
+npm install cucumberjs-parallel --save-dev
+```
+***Notes:*** 
+
+* The version 1.0.0 was tested with cucumberjs v6.0.5.
+
+## How to use
+
+### Commands
+
+* `--parallel-type` - either `features` or `scenarios`
+* `-w, --workers` - number of threads. if the value set to 0, the count of threads will equal the number of tasks (features or scenarios)
+
+To run `Scenarios` in Parallel, pass process.argv `--parallel-type scenarios`
+
+
+``` bash
+$ node_modules/cucumberjs-parallel/bin/cucumberjs-parallel /path/to/features -r /path/to/step-defs --parallel-type scenarios -w 4 --format json:path/to/file.json
+```
+
+
+It runs `Features` in parallel by default, or by passing `--parallel-type features` process argument
+
+
+``` bash
+$ node_modules/cucumberjs-parallel/bin/cucumberjs-parallel /path/to/features -r /path/to/step-defs -w 0 --format json:path/to/file.json
+```
+
+
+## Run
+
+Supports all the arguments as [cucumber-js][1], however please be careful with `--format` option, the module supports aggregation of `json`. the rest of formats might not be working.  
+
+``` bash
+$ node_modules/cucumberjs-parallel/bin/cucumberjs-parallel /path/to/features -r /path/to/step-defs -w 2 -f json:path/to/file.json --tags=@myTag 
+```
+
+
+
+#### Format
+Module supports JSON format. You can save the JSON output to file by passing the cucumber-format as,
+
+
+```bash
+-f json:path/to/file.json
+```
+
+### Allure Report
+
+Run Features or Scenarios in Parallel and generate Allure Reports with [allure-cucumberjs][allure-cucumberjs]
+
+Create Reporter file:
+```javascript
+const { CucumberJSAllureFormatter } = require("allure-cucumberjs");
+const { AllureRuntime } = require("allure-cucumberjs");
+
+function Reporter(options) {
+  return new CucumberJSAllureFormatter(
+    options,
+    new AllureRuntime({ resultsDir: "./allure-results" }),
+    {}
+  );
+}
+Reporter.prototype = Object.create(CucumberJSAllureFormatter.prototype);
+Reporter.prototype.constructor = Reporter;
+
+exports.default = Reporter;
+```
+Then pass with reporter as a Cucumber formatter:
+`--format ./path/to/Reporter.js`
+
+e.g.
+`node_modules/cucumberjs-parallel/bin/cucumberjs-parallel test/features --parallel-type features -w 2 -f allure/Reporter.js`
+
+## Changelog 
+
+[changelog][changelog]
+
+## Inspired by
+
+* [cucumber-parallel][2] 
+* [cucumberjs][1]
+
+
+[1]: https://github.com/cucumber/cucumber-js "CucumberJs"
+[2]: https://github.com/gkushang/cucumber-parallel "Cucumber Parallel"
+
+[allure-cucumberjs]: https://github.com/allure-framework/allure-js/tree/master/packages/allure-cucumberjs
+
+[changelog]: https://github.com/vtimonov/cucumberjs-parallel/blob/master/CHANGELOG.md
+
+[travis-shield]: https://api.travis-ci.org/vtimonov/cucumberjs-parallel.svg?branch=master
+[travis-link]: https://travis-ci.org/github/vtimonov/cucumberjs-parallel
+
+[npm-shield]: https://img.shields.io/npm/v/cucumberjs-parallel.svg
+[npm-link]: https://www.npmjs.com/package/cucumberjs-parallel
+
+[depedency-shield]: https://david-dm.org/vtimonov/cucumberjs-parallel/status.svg
+[depedency-link]: https://david-dm.org/vtimonov/cucumberjs-parallel
+
+[license-shield]: https://img.shields.io/badge/License-MIT-green.svg
+[license-link]: https://github.com/vtimonov/cucumberjs-parallel/blob/master/LICENSE
+
+
+
+
+
+
+
