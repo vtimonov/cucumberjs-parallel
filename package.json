@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha './test/unit_tests'",
     "pretest": "npm run cucumberjs-run-features && npm run test-feature && npm run test-scenario",
-    "test-feature": "node test/bin/cucumberjs-parallel test/features --parallel-type features -w 1 --format json:test/report/cucumber_report1.json",
-    "test-scenario": "node test/bin/cucumberjs-parallel test/features --parallel-type scenarios -w 2 --format json:test/report/cucumber_report2.json",
+    "test-feature": "node --experimental-worker test/bin/cucumberjs-parallel test/features --parallel-type features -w 1 --format json:test/report/cucumber_report1.json",
+    "test-scenario": "node --experimental-worker test/bin/cucumberjs-parallel test/features --parallel-type scenarios -w 2 --format json:test/report/cucumber_report2.json",
     "cucumberjs-run-features": "node node_modules/cucumber/bin/cucumber-js test/features --format json:test/report/cucumber_report0.json",
     "test-feature-no-params": "node test/bin/cucumberjs-parallel test/features -w 4",
     "test-allure": "node test/bin/cucumberjs-parallel test/features --parallel-type features -w 2 -f test/allure/Reporter.js",
