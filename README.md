@@ -11,7 +11,8 @@ npm install cucumberjs-parallel --save-dev
 ```
 ***Notes:*** 
 
-* The version 1.0.0 was tested with cucumberjs v6.0.5.
+* The version 1.0.0 was tested with cucumberjs v6.0.5 and Node v12.
+* The module requires node v.^10, if you are using v10, please use `--experimental-worker` flag. [Details][3]
 
 ## How to use
 
@@ -93,6 +94,7 @@ e.g.
 
 [1]: https://github.com/cucumber/cucumber-js "CucumberJs"
 [2]: https://github.com/gkushang/cucumber-parallel "Cucumber Parallel"
+[3]: https://nodejs.org/docs/latest-v10.x/api/worker_threads.html#
 
 [allure-cucumberjs]: https://github.com/allure-framework/allure-js/tree/master/packages/allure-cucumberjs
 
