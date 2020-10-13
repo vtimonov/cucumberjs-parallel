@@ -1,6 +1,6 @@
 {
   "name": "cucumberjs-parallel",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Run cucumber features or scenarios in parallel with limited threads count",
   "main": "./lib/run.js",
   "scripts": {
@@ -25,6 +25,11 @@
     "name": "Viacheslav Timonov",
     "email": "tsmaggot@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtimonov/cucumberjs-parallel.git"
+  },
+  "homepage": "https://github.com/vtimonov/cucumberjs-parallel#readme",
   "license": "MIT",
   "devDependencies": {
     "allure-cucumberjs": "^2.0.0-beta.8",
@@ -41,14 +46,14 @@
     "prettier": "2.1.2"
   },
   "dependencies": {
-    "@mcjxy/task-pool": "^1.1.8",
-    "cucumber": "^6.0.5",
-    "fs-finder": "^1.8.1",
-    "lodash": "^4.17.20",
-    "fs-extra": "^9.0.1",
-    "gherkin": "5.0.0",
-    "uuid": "^8.3.1",
     "commander": "^6.1.0",
-    "simple-node-logger": "^18.12.24"
+    "cucumber": "^6.0.5",
+    "fs-extra": "^9.0.1",
+    "fs-finder": "^1.8.1",
+    "gherkin": "5.0.0",
+    "lodash": "^4.17.20",
+    "simple-node-logger": "^18.12.24",
+    "uuid": "^8.3.1",
+    "workerpool": "^6.0.2"
   }
 }
