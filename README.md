@@ -80,7 +80,9 @@ Then pass with reporter as a Cucumber formatter:
 `--format ./path/to/Reporter.js`
 
 e.g.
-`node_modules/cucumberjs-parallel/bin/cucumberjs-parallel test/features --parallel-type features -w 2 -f allure/Reporter.js`
+```
+node_modules/cucumberjs-parallel/bin/cucumberjs-parallel test/features --parallel-type features -w 2 -f allure/Reporter.js
+```
 
 ## Changelog 
 
