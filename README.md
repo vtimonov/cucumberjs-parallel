@@ -11,7 +11,7 @@ npm install cucumberjs-parallel --save-dev
 ```
 ***Notes:*** 
 
-* The version 1.0.0 was tested with cucumberjs v6.0.5 and Node v12.
+* The versions 1.x.x were tested with cucumberjs v6.0.5 and Node v12.
 * The module requires node v.^10, if you are using v10, please use `--experimental-worker` flag. [Details][3]
 
 ## How to use

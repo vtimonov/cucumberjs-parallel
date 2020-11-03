@@ -22,15 +22,15 @@ const getData = function () {
         expectedJson: expectedJson,
         featuresJson: actualFeaturesJson,
         scenariosJson: actualScenariosJson,
-    }
-}
+    };
+};
 
 function setDurationToZero(cases) {
     cases.forEach(tCase => {
         tCase.steps.forEach(step => {
             step.result.duration = 0;
-        })
-    })
+        });
+    });
 }
 
 describe('Check that json report for parallel features is equal standard cucumber report.', () => {
@@ -47,7 +47,7 @@ describe('Check that json report for parallel features is equal standard cucumbe
         if (value.name === "Cucumber Parallel Set Two") {
             exfeature2 = value;
         }
-    })
+    });
 
     actual.forEach(value => {
         if (value.name === "Cucumber Parallel Set One") {
@@ -56,7 +56,7 @@ describe('Check that json report for parallel features is equal standard cucumbe
         if (value.name === "Cucumber Parallel Set Two") {
             afeature2 = value;
         }
-    })
+    });
 
     it('feature 1 main data should be the same', () => {
         const feature1 = Object.assign({}, exfeature1);
@@ -103,22 +103,22 @@ describe('Check that json report for parallel scenarios is equal standard cucumb
 
 
     expected.forEach(value => {
-        if (value.name === "Cucumber Parallel Set One") {
+        if (value.name === 'Cucumber Parallel Set One') {
             exfeature1 = value;
         }
-        if (value.name === "Cucumber Parallel Set Two") {
+        if (value.name === 'Cucumber Parallel Set Two') {
             exfeature2 = value;
         }
-    })
+    });
 
     actual.forEach(value => {
-        if (value.name === "Cucumber Parallel Set One") {
+        if (value.name === 'Cucumber Parallel Set One') {
             afeature1 = value;
         }
-        if (value.name === "Cucumber Parallel Set Two") {
+        if (value.name === 'Cucumber Parallel Set Two') {
             afeature2 = value;
         }
-    })
+    });
 
     it('feature 1 main data should be the same', () => {
         const feature1 = Object.assign({}, exfeature1);
