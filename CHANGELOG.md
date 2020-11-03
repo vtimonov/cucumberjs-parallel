@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 1.2.5 (11-03-2020)
+* switched to new logger
+* handle a case when a feature content missed
+* fix an issue with triggering background as a task
+
 ### 1.2.1 (10-15-2020)
 
 * Moved to a new [worker pool module][1]
