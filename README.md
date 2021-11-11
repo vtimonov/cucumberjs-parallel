@@ -1,17 +1,23 @@
-Cucumberjs Parallel
+CucumberJS Parallel
 =================
 ***Run Cucumber Features or Scenarios in Parallel with limited threads count***
 
-[![Build Status][travis-shield]][travis-link] [![npm][npm-shield]][npm-link] [![Dependency Status][depedency-shield]][depedency-link] [![License][license-shield]][license-link]
+[![Build Status][travis-shield]][travis-link] [![npm][npm-shield]][npm-link] [![License][license-shield]][license-link]
 
 ## Install
+Cucumber 6
+``` bash
+npm install cucumberjs-parallel@1.2.5 --save-dev
+```
 
+Cucumber 7
 ``` bash
 npm install cucumberjs-parallel --save-dev
 ```
 ***Notes:*** 
 
 * The versions 1.x.x were tested with cucumberjs v6.0.5 and Node v12.
+* The versions 2.x.x were tested with cucumberjs v7.3.1 and Node v14.16.0.
 * The module requires node v.^10, if you are using v10, please use `--experimental-worker` flag. [Details][3]
 
 ## How to use
@@ -56,6 +62,8 @@ Module supports JSON format. You can save the JSON output to file by passing the
 ```
 
 ### Allure Report
+
+> CucumberJS 7 and higher doesn't work with AllureJS last version (2.0.0-beta.14)
 
 Run Features or Scenarios in Parallel and generate Allure Reports with [allure-cucumberjs][allure-cucumberjs]
 

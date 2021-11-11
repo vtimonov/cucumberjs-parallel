@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 2.0.0 (11-11-2021)
+* moved to cucumber 7+
+
 ### 1.2.5 (11-03-2020)
 * switched to new logger
 * handle a case when a feature content missed
