@@ -110,8 +110,8 @@ node_modules/cucumberjs-parallel/bin/cucumberjs-parallel test/features --paralle
 
 [changelog]: https://github.com/vtimonov/cucumberjs-parallel/blob/master/CHANGELOG.md
 
-[travis-shield]: https://api.travis-ci.org/vtimonov/cucumberjs-parallel.svg?branch=master
-[travis-link]: https://travis-ci.org/github/vtimonov/cucumberjs-parallel
+[travis-shield]: https://app.travis-ci.com/vtimonov/cucumberjs-parallel.svg?branch=master
+[travis-link]: https://app.travis-ci.com/vtimonov/cucumberjs-parallel
 
 [npm-shield]: https://img.shields.io/npm/v/cucumberjs-parallel.svg
 [npm-link]: https://www.npmjs.com/package/cucumberjs-parallel
