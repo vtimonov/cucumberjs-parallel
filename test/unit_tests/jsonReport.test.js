@@ -12,7 +12,6 @@ const cucumberjsReportJson = 'cucumber_report0.json';
 const cucumberParallelFeaturesReportJson = 'cucumber_report1.json';
 const cucumberParallelScenariosReportJson = 'cucumber_report2.json';
 
-
 const getData = function () {
     const expectedJson = fs.readJsonSync(dirPath + cucumberjsReportJson);
     const actualFeaturesJson = fs.readJsonSync(dirPath + cucumberParallelFeaturesReportJson);
@@ -25,6 +24,8 @@ const getData = function () {
     };
 };
 
+const testData = getData();
+
 function setDurationToZero(cases) {
     cases.forEach(tCase => {
         tCase.steps.forEach(step => {
@@ -33,48 +34,48 @@ function setDurationToZero(cases) {
     });
 }
 
+const expected = testData.expectedJson;
+const actual = testData.featuresJson;
+
+let expectedfeature1, expectedfeature2, actualfeature1, actualfeature2;
+
+
+expected.forEach(value => {
+    if ('Cucumber Parallel Set One' === value.name) {
+        expectedfeature1 = value;
+    }
+    if ('Cucumber Parallel Set Two' === value.name) {
+        expectedfeature2 = value;
+    }
+});
+
+actual.forEach(value => {
+    if (value.name === 'Cucumber Parallel Set One') {
+        actualfeature1 = value;
+    }
+    if (value.name === 'Cucumber Parallel Set Two') {
+        actualfeature2 = value;
+    }
+});
+
 describe('Check that json report for parallel features is equal standard cucumber report.', () => {
-    const expected = getData().expectedJson;
-    const actual = getData().featuresJson;
-
-    let exfeature1, exfeature2, afeature1, afeature2;
-
-
-    expected.forEach(value => {
-        if (value.name === "Cucumber Parallel Set One") {
-            exfeature1 = value;
-        }
-        if (value.name === "Cucumber Parallel Set Two") {
-            exfeature2 = value;
-        }
-    });
-
-    actual.forEach(value => {
-        if (value.name === "Cucumber Parallel Set One") {
-            afeature1 = value;
-        }
-        if (value.name === "Cucumber Parallel Set Two") {
-            afeature2 = value;
-        }
-    });
-
     it('feature 1 main data should be the same', () => {
-        const feature1 = Object.assign({}, exfeature1);
+        const feature1 = Object.assign({}, expectedfeature1);
         delete feature1.elements;
-        const feature2 = Object.assign({}, afeature1);
+        const feature2 = Object.assign({}, actualfeature1);
         delete feature2.elements;
         expect(feature1).to.deep.equalInAnyOrder(feature2);
     });
     it('feature 2 main data should be the same', () => {
-        const feature1 = Object.assign({}, exfeature2);
+        const feature1 = Object.assign({}, expectedfeature2);
         delete feature1.elements;
-        const feature2 = Object.assign({}, afeature2);
+        const feature2 = Object.assign({}, actualfeature2);
         delete feature2.elements;
         expect(feature1).to.deep.equalInAnyOrder(feature2);
     });
     it('feature 1 test cases data should be the same', () => {
-        const elements1 = Object.assign([], exfeature1.elements);
-        const elements2 = Object.assign([], afeature1.elements);
+        const elements1 = Object.assign([], expectedfeature1.elements);
+        const elements2 = Object.assign([], actualfeature1.elements);
 
         //Remove duration as it's dynamic value
         setDurationToZero(elements1);
@@ -83,8 +84,8 @@ describe('Check that json report for parallel features is equal standard cucumbe
         expect(elements1).to.deep.equalInAnyOrder(elements2);
     });
     it('feature 2 test cases data should be the same', () => {
-        const elements1 = Object.assign([], exfeature2.elements);
-        const elements2 = Object.assign([], afeature2.elements);
+        const elements1 = Object.assign([], expectedfeature2.elements);
+        const elements2 = Object.assign([], actualfeature2.elements);
 
         //Remove duration as it's dynamic value
         setDurationToZero(elements1);
@@ -96,47 +97,23 @@ describe('Check that json report for parallel features is equal standard cucumbe
 
 
 describe('Check that json report for parallel scenarios is equal standard cucumber report.', () => {
-    const expected = getData().expectedJson;
-    const actual = getData().scenariosJson;
-
-    let exfeature1, exfeature2, afeature1, afeature2;
-
-
-    expected.forEach(value => {
-        if (value.name === 'Cucumber Parallel Set One') {
-            exfeature1 = value;
-        }
-        if (value.name === 'Cucumber Parallel Set Two') {
-            exfeature2 = value;
-        }
-    });
-
-    actual.forEach(value => {
-        if (value.name === 'Cucumber Parallel Set One') {
-            afeature1 = value;
-        }
-        if (value.name === 'Cucumber Parallel Set Two') {
-            afeature2 = value;
-        }
-    });
-
     it('feature 1 main data should be the same', () => {
-        const feature1 = Object.assign({}, exfeature1);
+        const feature1 = Object.assign({}, expectedfeature1);
         delete feature1.elements;
-        const feature2 = Object.assign({}, afeature1);
+        const feature2 = Object.assign({}, actualfeature1);
         delete feature2.elements;
         expect(feature1).to.deep.equalInAnyOrder(feature2);
     });
     it('feature 2 main data should be the same', () => {
-        const feature1 = Object.assign({}, exfeature2);
+        const feature1 = Object.assign({}, expectedfeature2);
         delete feature1.elements;
-        const feature2 = Object.assign({}, afeature2);
+        const feature2 = Object.assign({}, actualfeature2);
         delete feature2.elements;
         expect(feature1).to.deep.equalInAnyOrder(feature2);
     });
     it('feature 1 test cases data should be the same', () => {
-        const elements1 = Object.assign([], exfeature1.elements);
-        const elements2 = Object.assign([], afeature1.elements);
+        const elements1 = Object.assign([], expectedfeature1.elements);
+        const elements2 = Object.assign([], actualfeature1.elements);
 
         // Remove duration as it's dynamic value
         setDurationToZero(elements1);
@@ -145,8 +122,8 @@ describe('Check that json report for parallel scenarios is equal standard cucumb
         expect(elements1).to.deep.equalInAnyOrder(elements2);
     });
     it('feature 2 test cases data should be the same', () => {
-        const elements1 = Object.assign([], exfeature2.elements);
-        const elements2 = Object.assign([], afeature2.elements);
+        const elements1 = Object.assign([], expectedfeature2.elements);
+        const elements2 = Object.assign([], actualfeature2.elements);
 
         // Remove duration as it's dynamic value
         setDurationToZero(elements1);

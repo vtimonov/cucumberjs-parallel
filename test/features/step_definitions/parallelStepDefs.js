@@ -1,4 +1,4 @@
-const { Given, When, Then } = require('cucumber');
+const { Given, When, Then } = require('@cucumber/cucumber');
 
 
 Given(/^Fred has multiple (?:features|scenarios) written in cucumber$/, function (callback) {
