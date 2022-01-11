@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 2.0.1 (1-1-2022)
+* update CRLF to LF in `cucumberjs-parallel` as it causes issues on unix systems.
+
 ### 2.0.0 (11-11-2021)
 * moved to cucumber 7+
 
