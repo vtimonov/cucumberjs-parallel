@@ -7,7 +7,7 @@ Cucumberjs Parallel
 ## Install
 
 ``` bash
-npm install cucumberjs-parallel --save-dev
+npm install cucumberjs-parallel@1.2.6 --save-dev
 ```
 ***Notes:*** 
 

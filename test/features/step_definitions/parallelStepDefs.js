@@ -1,4 +1,5 @@
-const { Given, When, Then } = require('cucumber');
+const {Given, When, Then} = require('cucumber');
+const assert = require('assert');
 
 
 Given(/^Fred has multiple (?:features|scenarios) written in cucumber$/, function (callback) {
@@ -21,4 +22,8 @@ When(/^Fred has scenario outline with the "([^"]*)"$/, function (id, callback) {
 
 Given(/^Fred has a step with below data table$/, function (table, callback) {
     callback();
+});
+
+Then(/^all the (?:features|scenarios) should fail$/, function () {
+    assert.fail('I m a failed test');
 });

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 1.2.6 (06-21-2022)
+* fix reporting for failed tests
+
 ### 1.2.5 (11-03-2020)
 * switched to new logger
 * handle a case when a feature content missed
