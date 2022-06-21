@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 2.0.2 (06-21-2022)
+* fix ignorance of failed tests in reports
+
 ### 2.0.1 (1-1-2022)
 * update CRLF to LF in `cucumberjs-parallel` as it causes issues on unix systems.
 
