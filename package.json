@@ -1,14 +1,14 @@
 {
   "name": "cucumberjs-parallel",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Run cucumber features or scenarios in parallel with limited threads count",
   "main": "./lib/run.js",
   "scripts": {
     "test": "mocha './test/unit_tests'",
-    "pretest": "npm run cucumberjs-run-features && npm run test-feature && npm run test-scenario",
+    "pretest": "npm run cucumberjs-run-features || npm run test-feature && npm run test-scenario",
     "test-feature": "node test/bin/cucumberjs-parallel test/features --parallel-type features -w 2 --format json:test/report/cucumber_report1.json",
     "test-scenario": "node test/bin/cucumberjs-parallel test/features --parallel-type scenarios -w 2 --format json:test/report/cucumber_report2.json",
-    "cucumberjs-run-features": "node node_modules/@cucumber/cucumber/bin/cucumber-js test/features --format json:test/report/cucumber_report0.json",
+    "cucumberjs-run-features": "node node_modules/@cucumber/cucumber/bin/cucumber-js test/features --format json:test/report/cucumber_report0.json --publish-quiet",
     "test-feature-no-params": "node test/bin/cucumberjs-parallel test/features -w 4",
     "test-allure": "node test/bin/cucumberjs-parallel test/features --parallel-type features -w 2 -f test/allure/Reporter.js",
     "cucumberjs-run-feature": "./node_modules/.bin/cucumber-js test/features/parallel_1.feature:31 --format json:test/report/cucumber_report.json"
@@ -42,7 +42,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.2",
-    "mocha": "^8.2.1",
+    "mocha": "^10.0.0",
     "prettier": "2.1.2"
   },
   "dependencies": {
