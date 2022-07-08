@@ -1,6 +1,6 @@
 {
-  "name": "cucumberjs-parallel",
-  "version": "2.0.2",
+  "name": "@telsis/cucumberjs-parallel",
+  "version": "2.0.2-nm3",
   "description": "Run cucumber features or scenarios in parallel with limited threads count",
   "main": "./lib/run.js",
   "scripts": {
@@ -21,6 +21,9 @@
     "cucumber-parallel",
     "cucumberjs-parallel"
   ],
+  "publishConfig": {
+    "registry": "http://npm.eng.tcs.local/repository/npm-telsis/"
+  },
   "author": {
     "name": "Viacheslav Timonov",
     "email": "tsmaggot@gmail.com"
