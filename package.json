@@ -1,6 +1,6 @@
 {
   "name": "@telsis/cucumberjs-parallel",
-  "version": "2.0.2-nm2",
+  "version": "2.0.2-nm3",
   "description": "Run cucumber features or scenarios in parallel with limited threads count",
   "main": "./lib/run.js",
   "scripts": {
